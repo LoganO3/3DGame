@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCTalkable : MonoBehaviour
 {
     Player player;
+    MouseControl mouseControl;
     public bool inRange = false;
     [SerializeField] GameObject speechMenu;
 
@@ -12,6 +13,7 @@ public class NPCTalkable : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
+        mouseControl = FindObjectOfType<MouseControl>();
     }
 
     // Update is called once per frame
@@ -33,11 +35,19 @@ public class NPCTalkable : MonoBehaviour
     {
         if (inRange == true)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == false)
             {
                 speechMenu.SetActive(true);
+                mouseControl.InternalLockUpdate();
+            }
+            else if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == true)
+            {
+                speechMenu.SetActive(false);
+                mouseControl.InternalLockUpdate();
             }
         }
-        else {speechMenu.SetActive(true);}
+        else { speechMenu.SetActive(false);
+
+        }
     }
 }
