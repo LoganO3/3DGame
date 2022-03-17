@@ -21,12 +21,10 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerStay(Collider collision)
     {
-        Debug.Log("True");
         inRange = true;
     }
     private void OnTriggerExit(Collider collision)
     {
-        Debug.Log("False");
         inRange = false;
     }
 
@@ -36,7 +34,7 @@ public class Interactable : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Talk");
+                
             }
         }
         else {return;}

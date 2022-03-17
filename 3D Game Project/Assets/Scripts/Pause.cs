@@ -19,10 +19,8 @@ public class Pause : MonoBehaviour
         player = FindObjectOfType<Player>();
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.Log(")
             PauseGame();
         }
-        else { return; }
     }
 
     public void PauseGame()
