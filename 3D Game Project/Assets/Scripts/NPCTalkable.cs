@@ -6,6 +6,7 @@ public class NPCTalkable : MonoBehaviour
 {
     Player player;
     MouseControl mouseControl;
+    UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController b;
     public bool inRange = false;
     [SerializeField] GameObject speechMenu;
 

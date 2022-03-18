@@ -26,12 +26,12 @@ public class MouseControl : MonoBehaviour
         if (m_cursorIsLocked == true)
         {
             m_cursorIsLocked = false;
-            GetComponent(RigidbodyFirstPersonController).enabled = false;
+            GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = false;
         }
         else if (m_cursorIsLocked == false)
         {
             m_cursorIsLocked = true;
-            GetComponent(RigidbodyFirstPersonController).enabled = true;
+            GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = true;
         }
 
         if (m_cursorIsLocked)
