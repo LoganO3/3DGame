@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public int hp = 5;
 
@@ -13,10 +13,5 @@ public class PlayerHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        hp -= damage;
     }
 }
