@@ -7,6 +7,7 @@ public class RangedAttack : MonoBehaviour
     [SerializeField] Transform shootingPoint;
     [SerializeField] public GameObject projectile;
     [SerializeField] public float projectileFiringPeriod = 1f;
+    [SerializeField] float speed;
 
     public bool canShoot = true;
     float waitTimer = .25f;
@@ -30,6 +31,7 @@ public class RangedAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         { 
                 firingCoroutine = StartCoroutine(FireContinuously());
+
         }
         if (Input.GetButtonUp("Fire1"))
         {
@@ -51,14 +53,16 @@ public class RangedAttack : MonoBehaviour
         {
             if (canShoot == true)
             {
-                GameObject projectiles = Instantiate(projectile, shootingPoint.position, shootingPoint.rotation) as GameObject;
-                projectiles.GetComponent<Rigidbody>().velocity = new Vector3(10, 10, 10);
-                canShoot = false;
-                yield return new WaitForSeconds(projectileFiringPeriod);
-                canShoot = true;
-            }
+                RaycastHit hit;
+                Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+                if (Physics.Raycast(ray, out hit, 400.0f))
+                {
+                    GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+                    projectiles.Rigidbody.velocity = (hit.point - transform.position).normalized * speed;
+                }
             else
             { yield return new WaitForSeconds(waitTimer); }
         }
+
     }
 }
