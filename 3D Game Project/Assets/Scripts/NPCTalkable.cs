@@ -1,26 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class NPCTalkable : MonoBehaviour
 {
     Player player;
     MouseControl mouseControl;
-    UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController b;
-    public bool inRange = false;
+    State state;
+    [SerializeField] TextMeshProUGUI textComponent;
+    [SerializeField] State StartingState;
     [SerializeField] GameObject speechMenu;
+    public bool inRange = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
         mouseControl = FindObjectOfType<MouseControl>();
+        state = StartingState;
+        textComponent.text = state.GetStateStory();
     }
 
     // Update is called once per frame
     void Update()
     {
         Interacted();
+        ManageState();
     }
 
     private void OnTriggerStay(Collider collision)
@@ -50,5 +57,22 @@ public class NPCTalkable : MonoBehaviour
         else { speechMenu.SetActive(false);
 
         }
+    }
+
+    private void ManageState()
+    {
+        if (speechMenu.activeSelf == true)
+        {
+            var NextStates = state.GetNextStates();
+            for (int index = 0; index < NextStates.Length; index++)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1 + index))
+                {
+                    state = NextStates[index];
+                }
+            }
+            textComponent.text = state.GetStateStory();
+        }
+        else { return; }
     }
 }
