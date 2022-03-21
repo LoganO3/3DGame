@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 485940577}
   - component: {fileID: 485940576}
   m_Layer: 10
-  m_Name: Shooting Point
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,6 +1008,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 1868116325}
   projectile: {fileID: 3407378645802576443, guid: 159367c744e1e4c4d8e6ae49cb5c84c3, type: 3}
   projectileFiringPeriod: 1
+  speed: 100
   canShoot: 1
 --- !u!54 &485940577
 Rigidbody:

@@ -29,40 +29,13 @@ public class RangedAttack : MonoBehaviour
     private void Fire()
     {
         if (Input.GetButtonDown("Fire1"))
-        { 
-                firingCoroutine = StartCoroutine(FireContinuously());
-
+        {
+            GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation);
+            projectiles.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, speed));
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            StopCoroutine(firingCoroutine);
-            StartCoroutine(ResetFiring());
+            Debug.Log("Stop");
         }
-    }
-
-    IEnumerator ResetFiring()
-    {
-        yield return new WaitForSeconds(projectileFiringPeriod);
-        canShoot = true;
-        StopCoroutine(ResetFiring());
-    }
-
-    IEnumerator FireContinuously()
-    {
-        while (true)
-        {
-            if (canShoot == true)
-            {
-                RaycastHit hit;
-                Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-                if (Physics.Raycast(ray, out hit, 400.0f))
-                {
-                    GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
-                    projectiles.Rigidbody.velocity = (hit.point - transform.position).normalized * speed;
-                }
-            else
-            { yield return new WaitForSeconds(waitTimer); }
-        }
-
     }
 }
