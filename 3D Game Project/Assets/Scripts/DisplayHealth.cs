@@ -19,6 +19,10 @@ public class DisplayHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        healthText.text = player.GetComponent<Health>().hp.ToString();
+        if (player)
+        {
+            healthText.text = player.GetComponent<Health>().hp.ToString();
+        }
+        else { return; }
     }
 }

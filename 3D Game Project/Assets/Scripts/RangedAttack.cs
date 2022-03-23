@@ -6,7 +6,6 @@ public class RangedAttack : MonoBehaviour
 {
     [SerializeField] Transform shootingPoint;
     [SerializeField] public GameObject projectile;
-    [SerializeField] public float projectileFiringPeriod = 1f;
     [SerializeField] float speed;
 
     public bool canShoot = true;
@@ -35,7 +34,7 @@ public class RangedAttack : MonoBehaviour
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            Debug.Log("Stop");
+            return;
         }
     }
 }
