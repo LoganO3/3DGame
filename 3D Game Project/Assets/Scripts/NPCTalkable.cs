@@ -11,7 +11,7 @@ public class NPCTalkable : MonoBehaviour
     State state;
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] State StartingState;
-    [SerializeField] GameObject speechMenu;
+    public GameObject speechMenu;
     public bool inRange = false;
 
     // Start is called before the first frame update
@@ -46,12 +46,10 @@ public class NPCTalkable : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == false)
             {
                 speechMenu.SetActive(true);
-                mouseControl.InternalLockUpdate();
             }
             else if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == true)
             {
                 speechMenu.SetActive(false);
-                mouseControl.InternalLockUpdate();
             }
         }
         else { speechMenu.SetActive(false);

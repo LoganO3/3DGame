@@ -5,34 +5,35 @@ using UnityEngine;
 public class MouseControl : MonoBehaviour
 {
     public bool lockCursor = true;
-    private bool m_cursorIsLocked = true;
+    private bool m_cursorIsLocked = false;
 
     private void Start()
     {
+       Locked();
+    }
+
+    public void Unlocked()
+    {
         m_cursorIsLocked = false;
-        InternalLockUpdate();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.P))
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = false;
+        GetComponent<Player>().enabled = false;
+     
+        if (m_cursorIsLocked)
         {
-            InternalLockUpdate();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else if (!m_cursorIsLocked)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
-
-    public void InternalLockUpdate()
+    public void Locked()
     {
-        if (m_cursorIsLocked == true)
-        {
-            m_cursorIsLocked = false;
-            GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = false;
-        }
-        else if (m_cursorIsLocked == false)
-        {
-            m_cursorIsLocked = true;
-            GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = true;
-        }
+        m_cursorIsLocked = true;
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = true;
+        GetComponent<Player>().enabled = true;
 
         if (m_cursorIsLocked)
         {
