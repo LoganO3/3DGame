@@ -11,8 +11,7 @@ public class RangedAttack : MonoBehaviour
     public bool canShoot = true;
     float waitTimer = .25f;
     Player player;
-
-    Coroutine firingCoroutine;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -31,10 +30,21 @@ public class RangedAttack : MonoBehaviour
         {
             GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation);
             projectiles.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, speed));
+            StartCoroutine(Wait());
         }
         if (Input.GetButtonUp("Fire1"))
         {
             return;
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(waitTimer);
+            canShoot = true;
+            StopCoroutine(Wait());
         }
     }
 }

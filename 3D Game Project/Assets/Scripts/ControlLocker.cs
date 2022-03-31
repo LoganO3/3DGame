@@ -12,8 +12,8 @@ public class ControlLocker : MonoBehaviour
     void Start()
     {
         mouseControl = FindObjectOfType<MouseControl>();
-        nPCTalkable = FindObjectOfType<NPCTalkable>();
-        inventoryControl = FindObjectOfType<InventoryControl>();
+    //    nPCTalkable = FindObjectOfType<NPCTalkable>();
+      //  inventoryControl = FindObjectOfType<InventoryControl>();
     }
 
     // Update is called once per frame
@@ -25,18 +25,18 @@ public class ControlLocker : MonoBehaviour
         }
         else if (Time.timeScale == 1)
         {
-            if (inventoryControl.Inventory.activeSelf == true)
-            {
-                mouseControl.Unlocked();
-            }
-            else if (nPCTalkable.speechMenu.activeSelf == true)
-            {
-                mouseControl.Unlocked();
-            }
-            else
-            {
+          //  if (inventoryControl.Inventory.activeSelf == true)
+          //  {
+            //    mouseControl.Unlocked();
+           // }
+            //else if (nPCTalkable.speechMenu.activeSelf == true)
+            //{
+              //  mouseControl.Unlocked();
+            //}
+            //else
+            //{
                 mouseControl.Locked();
-            }
+            //}
         }
     }
 }

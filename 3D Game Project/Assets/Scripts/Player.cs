@@ -22,13 +22,11 @@ public class Player : MonoBehaviour
         {
             if (currentWeapon == 1)
             {
-                Debug.Log("Switch");
                 currentWeapon = 0;
                 SwitchWeapon(currentWeapon);
             }
             else if (currentWeapon == 0)
             {
-                Debug.Log("Switch 2");
                 currentWeapon = 1;
                 SwitchWeapon(currentWeapon);
             }
