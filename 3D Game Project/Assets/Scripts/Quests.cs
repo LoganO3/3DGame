@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Quests : MonoBehaviour
+{
+    public GameObject questMenu;
+    int slimesKilled = 0;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+     
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        QuestMenuActivator();
+    }
+
+    private void QuestMenuActivator()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && questMenu.activeSelf == false)
+        {
+            Time.timeScale = 0;
+            questMenu.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && questMenu.activeSelf == true)
+        {
+            Time.timeScale = 1;
+            questMenu.SetActive(false);
+        }
+    }
+}

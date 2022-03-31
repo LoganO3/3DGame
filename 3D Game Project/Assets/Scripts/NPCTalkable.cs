@@ -9,16 +9,16 @@ public class NPCTalkable : MonoBehaviour
     Player player;
     MouseControl mouseControl;
     State state;
+    Interactable interactable;
     [SerializeField] TextMeshProUGUI textComponent;
     [SerializeField] State StartingState;
-    public GameObject speechMenu;
-    public bool inRange = false;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
         mouseControl = FindObjectOfType<MouseControl>();
+        interactable = FindObjectOfType<Interactable>();
         state = StartingState;
         textComponent.text = state.GetStateStory();
     }
@@ -26,40 +26,12 @@ public class NPCTalkable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Interacted();
         ManageState();
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        inRange = true;
-    }
-    private void OnTriggerExit(Collider collision)
-    {
-        inRange = false;
-    }
-
-    private void Interacted()
-    {
-        if (inRange == true)
-        {
-            if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == false)
-            {
-                speechMenu.SetActive(true);
-            }
-            else if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == true)
-            {
-                speechMenu.SetActive(false);
-            }
-        }
-        else { speechMenu.SetActive(false);
-
-        }
     }
 
     private void ManageState()
     {
-        if (speechMenu.activeSelf == true)
+        if (interactable.speechMenu.activeSelf == true)
         {
             var NextStates = state.GetNextStates();
             for (int index = 0; index < NextStates.Length; index++)

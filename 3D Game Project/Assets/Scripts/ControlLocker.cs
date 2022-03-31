@@ -5,15 +5,15 @@ using UnityEngine;
 public class ControlLocker : MonoBehaviour
 {
     MouseControl mouseControl;
-    NPCTalkable nPCTalkable;
-    InventoryControl inventoryControl;
+    Interactable interactable;
+    Quests quests;
 
     // Start is called before the first frame update
     void Start()
     {
         mouseControl = FindObjectOfType<MouseControl>();
-    //    nPCTalkable = FindObjectOfType<NPCTalkable>();
-      //  inventoryControl = FindObjectOfType<InventoryControl>();
+        quests = FindObjectOfType<Quests>();
+        interactable = FindObjectOfType<Interactable>();
     }
 
     // Update is called once per frame
@@ -25,18 +25,7 @@ public class ControlLocker : MonoBehaviour
         }
         else if (Time.timeScale == 1)
         {
-          //  if (inventoryControl.Inventory.activeSelf == true)
-          //  {
-            //    mouseControl.Unlocked();
-           // }
-            //else if (nPCTalkable.speechMenu.activeSelf == true)
-            //{
-              //  mouseControl.Unlocked();
-            //}
-            //else
-            //{
-                mouseControl.Locked();
-            //}
+            mouseControl.Locked();
         }
     }
 }
