@@ -32,13 +32,11 @@ public class Pause : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pauseCanvas.SetActive(true);
-                Debug.Log(Time.timeScale);
             }
             else if (Time.timeScale == 0)
             {
                 Time.timeScale = 1;
                 pauseCanvas.SetActive(false);
-                Debug.Log(Time.timeScale);
             }
         }
     }

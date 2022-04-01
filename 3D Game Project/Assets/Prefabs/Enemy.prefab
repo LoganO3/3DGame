@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6337385486754331058}
   - component: {fileID: 6337385486754331066}
   - component: {fileID: 6337385486754331065}
+  - component: {fileID: 806284982}
   m_Layer: 13
   m_Name: Enemy
   m_TagString: Untagged
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713a1e45d217add40bd6a0ce88cb142d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 8565531374624596253, guid: e25780106483d194ea44706edf164450, type: 3}
+  player: {fileID: 0}
 --- !u!195 &6337385486754331058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bf3bcdaf068e443986ad80ea589e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 100
 --- !u!114 &6337385486754331065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,3 +179,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+--- !u!114 &806284982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6337385486754331057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 417feede3f9b4814fb79c5b7bc953660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSlime: 0
+  isSkeleton: 1
