@@ -5,7 +5,8 @@ using UnityEngine;
 public class Quests : MonoBehaviour
 {
     public GameObject questMenu;
-    int slimesKilled = 0;
+    public int slimesKilled = 0;
+    public int skeletonsKilled = 0;
 
     // Start is called before the first frame update
     void Start()

@@ -5,12 +5,22 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int hp = 5;
+    MonsterType monsterType;
+
+    private void Start()
+    {
+        monsterType = GetComponent<MonsterType>();
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (hp <= 0)
         {
+            if (GetComponent<Player>() == false)
+            {
+                monsterType.MonsterTypeChecker();
+            }
             Destroy(gameObject);
         }
     }
