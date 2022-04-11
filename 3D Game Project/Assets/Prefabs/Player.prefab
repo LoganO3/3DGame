@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 8565531374680584127}
   - component: {fileID: 8565531374680584120}
   - component: {fileID: 8565531374680584103}
-  - component: {fileID: 8565531374680584100}
   - component: {fileID: 8565531374680584101}
   m_Layer: 8
   m_Name: Player
@@ -33,7 +32,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8565531374624596253}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000016292068}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 999.2, y: 21, z: 998.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -42,7 +41,7 @@ Transform:
   - {fileID: 8565531374915804650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!54 &8565531374619296379
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -202,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26bf3bcdaf068e443986ad80ea589e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
+  hp: 25
 --- !u!114 &8565531374680584120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,20 +231,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lockCursor: 1
---- !u!114 &8565531374680584100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8565531374624596253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5d96cbcd3f9944abef48bf91196130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Inventory: {fileID: 0}
-  player: {fileID: 8565531374680584120}
 --- !u!114 &8565531374680584101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97fa9f3b20e3d94dbd0d36182f833af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 25
 --- !u!54 &8565531374876087930
 Rigidbody:
   m_ObjectHideFlags: 0

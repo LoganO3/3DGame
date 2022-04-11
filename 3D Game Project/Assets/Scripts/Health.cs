@@ -21,6 +21,8 @@ public class Health : MonoBehaviour
             {
                 monsterType.MonsterTypeChecker();
             }
+            else
+            { return; }
             Destroy(gameObject);
         }
     }

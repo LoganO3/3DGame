@@ -11,16 +11,13 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] float minTimeBetweenShots = .2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     public GameObject playerObject;
-    public float shootingDistance;
     float speed;
     float shotCounter;
     int damping = 2;
-    Vector3 home;
 
     // Start is called before the first frame update
     void Start()
     {
-        home = transform.position;
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
     }
 
@@ -34,22 +31,6 @@ public class RangedEnemy : MonoBehaviour
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
             CountDownAndShoot();
-            float followDistance = Vector3.Distance(transform.position, playerObject.transform.position);
-            Vector3 Distance = transform.position - playerObject.transform.position;
-            Vector3 DistanceNormalized = Distance.normalized;
-            Vector3 targetPosition = playerObject.transform.position + (DistanceNormalized * shootingDistance);
-            if (followDistance > 20)
-            {
-                GetComponent<NavMeshAgent>().SetDestination(home);
-            }
-            else if (GetComponent<NavMeshAgent>().destination == targetPosition)
-            {
-                return;
-            }
-            else
-            {
-                GetComponent<NavMeshAgent>().SetDestination(targetPosition);
-            }
         }
     }
 
@@ -69,7 +50,7 @@ public class RangedEnemy : MonoBehaviour
 
     private void Fire()
     {
-        GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation);
+        GameObject projectiles = Instantiate(projectile, shootingPoint.transform.position, shootingPoint.transform.rotation);
         projectiles.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, projectileSpeed));
     }
 }
