@@ -6,40 +6,45 @@ using TMPro;
 public class QuestUI : MonoBehaviour
 {
     public string personalQuestDetails;
+    string personalQuestTracker;
     float trackedNumber;
-    float targetNumber;
-    [SerializeField] bool isKillQuest = false;
-    [SerializeField] bool isCollectionQuest = false;
+    bool isActive;
+    [SerializeField] GameObject questDisplay;
+    [SerializeField] float targetNumber;
     [SerializeField] bool trackingSlimeKills = false;
     [SerializeField] bool trackingSkeletonKills = false;
     [SerializeField] TextMeshProUGUI questDetailsText;
-    TextMeshProUGUI questTrackerText;
-    TextMeshProUGUI questTarget;
+    [SerializeField] TextMeshProUGUI questTrackerText;
 
-    public void Start()
+    public void Update()
     {
+        Debug.Log(questDisplay);
+        if (trackedNumber >= targetNumber)
+        {
+            questDisplay.GetComponent<TextMeshProUGUI>().color = new Color32 (150, 150, 150, 255);
+        }
         if (trackingSlimeKills == true)
         {
             trackedNumber = FindObjectOfType<Quests>().slimesKilled;
-            questTarget.text = " Slimes";
         }
         else if (trackingSkeletonKills == true)
         {
             trackedNumber = FindObjectOfType<Quests>().skeletonsKilled;
-            questTarget.text = " Skeletons";
+        }
+        personalQuestTracker = trackedNumber + " / " + targetNumber;
+        if (isActive == true)
+        {
+            questTrackerText.text = personalQuestTracker;
+        }
+        if(questDetailsText.text != personalQuestDetails)
+        {
+            isActive = false;
         }
     }
 
     public void SetQuestDetails()
     {
-        if (isKillQuest)
-        {
-            questTrackerText.text = "You Have Killed " + trackedNumber + " Out Of " + targetNumber + questTarget;
-        }
-        else if (isCollectionQuest)
-        {
-            questTrackerText.text = "You Have Collected " + trackedNumber + " Out Of " + targetNumber + " " + questTarget;
-        }
+        isActive = true;
         questDetailsText.text = personalQuestDetails;
     }
 }

@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class EnemyNavigation : MonoBehaviour
 {
     public GameObject playerObject;
-    public float shootingDistance;
+    public bool isAttacking;
+    public float attackDistance;
     float health;
     Vector3 home;
 
@@ -25,18 +26,21 @@ public class EnemyNavigation : MonoBehaviour
             float followDistance = Vector3.Distance(transform.position, playerObject.transform.position);
             Vector3 Distance = transform.position - playerObject.transform.position;
             Vector3 DistanceNormalized = Distance.normalized;
-            Vector3 targetPosition = playerObject.transform.position + (DistanceNormalized * shootingDistance);
+            Vector3 targetPosition = playerObject.transform.position + (DistanceNormalized * attackDistance);
             if (followDistance > 20)
             {
                 GetComponent<NavMeshAgent>().SetDestination(home);
+                isAttacking = false;
             }
             else if (GetComponent<Health>().hp < health)
             {
                 GetComponent<NavMeshAgent>().SetDestination(targetPosition);
+                isAttacking = true;
             }
             else
             {
                 GetComponent<NavMeshAgent>().SetDestination(targetPosition);
+                isAttacking = true;
             }
         }
     }
