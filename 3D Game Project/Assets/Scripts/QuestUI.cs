@@ -6,40 +6,39 @@ using TMPro;
 public class QuestUI : MonoBehaviour
 {
     public string personalQuestDetails;
+    string personalQuestTracker;
     float trackedNumber;
-    float targetNumber;
-    [SerializeField] bool isKillQuest = false;
-    [SerializeField] bool isCollectionQuest = false;
+    [SerializeField] float targetNumber;
     [SerializeField] bool trackingSlimeKills = false;
     [SerializeField] bool trackingSkeletonKills = false;
     [SerializeField] TextMeshProUGUI questDetailsText;
-    TextMeshProUGUI questTrackerText;
-    TextMeshProUGUI questTarget;
+    [SerializeField] TextMeshProUGUI questTrackerText;
+
 
     public void Start()
     {
         if (trackingSlimeKills == true)
         {
             trackedNumber = FindObjectOfType<Quests>().slimesKilled;
-            questTarget.text = " Slimes";
         }
         else if (trackingSkeletonKills == true)
         {
             trackedNumber = FindObjectOfType<Quests>().skeletonsKilled;
-            questTarget.text = " Skeletons";
         }
+    }
+
+    public void Update()
+    {
+        if (trackedNumber == targetNumber)
+        {
+            gameObject.GetComponent<TextMeshPro>().color = new Color(0.2f, 0.2f, 0.2f, 1.0f);
+        }
+            personalQuestTracker = trackedNumber + " / " +targetNumber;
     }
 
     public void SetQuestDetails()
     {
-        if (isKillQuest)
-        {
-            questTrackerText.text = "You Have Killed " + trackedNumber + " Out Of " + targetNumber + questTarget;
-        }
-        else if (isCollectionQuest)
-        {
-            questTrackerText.text = "You Have Collected " + trackedNumber + " Out Of " + targetNumber + " " + questTarget;
-        }
+        questTrackerText.text = personalQuestTracker;
         questDetailsText.text = personalQuestDetails;
     }
 }

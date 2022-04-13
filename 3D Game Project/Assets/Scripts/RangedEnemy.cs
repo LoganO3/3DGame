@@ -10,6 +10,7 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] float projectileSpeed;
     [SerializeField] float minTimeBetweenShots = .2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
+    EnemyNavigation enemyNavigation;
     public GameObject playerObject;
     float speed;
     float shotCounter;
@@ -19,6 +20,7 @@ public class RangedEnemy : MonoBehaviour
     void Start()
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+        enemyNavigation = GetComponent<EnemyNavigation>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,11 @@ public class RangedEnemy : MonoBehaviour
             lookPos.y = 0;
             var rotation = Quaternion.LookRotation(lookPos);
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);
-            CountDownAndShoot();
+            if (enemyNavigation.isAttacking == true)
+            {
+                CountDownAndShoot();
+            }
+            else { return; }
         }
     }
 
