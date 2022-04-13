@@ -7,16 +7,9 @@ public class RangedAttack : MonoBehaviour
     [SerializeField] Transform shootingPoint;
     [SerializeField] public GameObject projectile;
     [SerializeField] float speed;
+    [SerializeField] float waitTimer = .25f;
 
     public bool canShoot = true;
-    float waitTimer = .25f;
-    Player player;
- 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = FindObjectOfType<Player>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -26,8 +19,9 @@ public class RangedAttack : MonoBehaviour
 
     private void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && canShoot == true)
         {
+            canShoot = false;
             GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation);
             projectiles.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, speed));
             StartCoroutine(Wait());
