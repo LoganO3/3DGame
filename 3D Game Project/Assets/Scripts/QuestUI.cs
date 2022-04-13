@@ -8,15 +8,21 @@ public class QuestUI : MonoBehaviour
     public string personalQuestDetails;
     string personalQuestTracker;
     float trackedNumber;
+    bool isActive;
+    [SerializeField] GameObject questDisplay;
     [SerializeField] float targetNumber;
     [SerializeField] bool trackingSlimeKills = false;
     [SerializeField] bool trackingSkeletonKills = false;
     [SerializeField] TextMeshProUGUI questDetailsText;
     [SerializeField] TextMeshProUGUI questTrackerText;
 
-
-    public void Start()
+    public void Update()
     {
+        Debug.Log(questDisplay);
+        if (trackedNumber >= targetNumber)
+        {
+            questDisplay.GetComponent<TextMeshProUGUI>().color = new Color32 (150, 150, 150, 255);
+        }
         if (trackingSlimeKills == true)
         {
             trackedNumber = FindObjectOfType<Quests>().slimesKilled;
@@ -25,20 +31,20 @@ public class QuestUI : MonoBehaviour
         {
             trackedNumber = FindObjectOfType<Quests>().skeletonsKilled;
         }
-    }
-
-    public void Update()
-    {
-        if (trackedNumber == targetNumber)
+        personalQuestTracker = trackedNumber + " / " + targetNumber;
+        if (isActive == true)
         {
-            gameObject.GetComponent<TextMeshPro>().color = new Color(0.2f, 0.2f, 0.2f, 1.0f);
+            questTrackerText.text = personalQuestTracker;
         }
-            personalQuestTracker = trackedNumber + " / " +targetNumber;
+        if(questDetailsText.text != personalQuestDetails)
+        {
+            isActive = false;
+        }
     }
 
     public void SetQuestDetails()
     {
-        questTrackerText.text = personalQuestTracker;
+        isActive = true;
         questDetailsText.text = personalQuestDetails;
     }
 }

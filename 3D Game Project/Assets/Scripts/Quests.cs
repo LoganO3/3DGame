@@ -8,12 +8,6 @@ public class Quests : MonoBehaviour
     public int slimesKilled = 0;
     public int skeletonsKilled = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-     
-    }
-
     // Update is called once per frame
     void Update()
     {
