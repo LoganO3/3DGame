@@ -37,8 +37,6 @@ Transform:
   m_Children:
   - {fileID: 7965319380251337746}
   - {fileID: 1422924295542307879}
-  - {fileID: 1753200569774843944}
-  - {fileID: 1753200570905338803}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
@@ -345,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1753200569774843944
 Transform:
   m_ObjectHideFlags: 0
@@ -353,12 +351,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753200569774843945}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 0, z: 0.652}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34698486, y: -0.44000018, z: 0.526001}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
-  m_Father: {fileID: 1753200569590416224}
-  m_RootOrder: 2
+  m_Father: {fileID: 7965319380251337746}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1753200569774843940
 MeshFilter:
@@ -471,7 +469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1753200570905338803
 Transform:
   m_ObjectHideFlags: 0
@@ -479,13 +477,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753200570905338804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 0, z: 0.36}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32000732, y: -0.4479996, z: 0.27001953}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
   m_Children:
   - {fileID: 1753200569607835530}
-  m_Father: {fileID: 1753200569590416224}
-  m_RootOrder: 3
+  m_Father: {fileID: 7965319380251337746}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1753200570905338800
 MeshFilter:
@@ -580,6 +578,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 1753200569607835530}
   projectile: {fileID: 3407378645802576443, guid: 159367c744e1e4c4d8e6ae49cb5c84c3, type: 3}
   speed: 1000
+  waitTimer: 0.25
   canShoot: 1
 --- !u!1 &3378337322438292673
 GameObject:
@@ -3277,7 +3276,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1753200569774843944}
+  - {fileID: 1753200570905338803}
   m_Father: {fileID: 1753200569590416224}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

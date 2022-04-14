@@ -318,10 +318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f44938c79c5e04ba7d3285269b1d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingPoint: {fileID: 0}
-  projectile: {fileID: 0}
-  speed: 0
-  waitTimer: 0.25
+  shootingPoint: {fileID: 1008058011}
+  projectile: {fileID: 3407378645802576443, guid: 159367c744e1e4c4d8e6ae49cb5c84c3, type: 3}
+  speed: 1000
+  waitTimer: 0.1
+  drawLevel: 0
 --- !u!1 &524596213 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3135294433559029675, guid: a84d4b52713b0b54680dc315e04eaa33, type: 3}
@@ -429,6 +430,11 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4605028707437039134, guid: a84d4b52713b0b54680dc315e04eaa33, type: 3}
   m_PrefabInstance: {fileID: 3135294434016433246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1008058011 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1753200569607835530, guid: e25780106483d194ea44706edf164450, type: 3}
+  m_PrefabInstance: {fileID: 7965319380422295698}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1041275473
 PrefabInstance:
@@ -1293,9 +1299,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1753200569774843939, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753200569774843939, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753200569774843939, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753200569774843939, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753200569774843942, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753200569774843945, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1753200570905338767, guid: e25780106483d194ea44706edf164450, type: 3}
       propertyPath: waitTimer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026647460597349213, guid: e25780106483d194ea44706edf164450, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1753200570905338767, guid: e25780106483d194ea44706edf164450, type: 3}
