@@ -480,9 +480,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingPoint: {fileID: 1427174955}
-  projectile: {fileID: 0}
+  projectile: {fileID: 3407378645802576443, guid: 34a9332526a1fc64d8af42abe1b27484, type: 3}
   speed: 10000
   waitTimer: 0.25
+  projectiles:
+  - {fileID: 3407378645802576443, guid: 34a9332526a1fc64d8af42abe1b27484, type: 3}
+  - {fileID: 3407378645802576443, guid: 1956adfd4cba698409f8d3ea9f384f13, type: 3}
+  - {fileID: 3407378645802576443, guid: 9bc444f443bb491438f101c707f434a8, type: 3}
+  - {fileID: 3407378645802576443, guid: f253f17f00138ef4280e352f9e288020, type: 3}
+  currentProjectile: 0
   canShoot: 1
 --- !u!1 &2020297495 stripped
 GameObject:

@@ -26,6 +26,16 @@ public class SpellCasting : MonoBehaviour
             }
             else if (currentProjectile == 1)
             {
+                currentProjectile = 2;
+                SwitchWeapon();
+            }
+            else if (currentProjectile == 2)
+            {
+                currentProjectile = 3;
+                SwitchWeapon();
+            }
+            else if (currentProjectile == 3)
+            {
                 currentProjectile = 0;
                 SwitchWeapon();
             }
