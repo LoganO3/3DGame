@@ -105,13 +105,4 @@ public class Explosion : MonoBehaviour
             }
         }
     }
-    IEnumerator PlayerSpeedBuff()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(buffTimer);
-            player.resetSpeed();
-            StopCoroutine(PlayerSpeedBuff());
-        }
-    }
 }

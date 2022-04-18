@@ -354,6 +354,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1427174955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1091340031, guid: e25780106483d194ea44706edf164450, type: 3}
+  m_PrefabInstance: {fileID: 7965319380422295698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1444415465 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5246583352267346909, guid: 06840dca2116d1743abc3f6b2ce037a7, type: 3}
@@ -457,6 +462,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1953556585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1037515575, guid: e25780106483d194ea44706edf164450, type: 3}
+  m_PrefabInstance: {fileID: 7965319380422295698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1953556586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953556585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be5e54ebce136247b3fa25ef1dec7c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 1427174955}
+  projectile: {fileID: 0}
+  speed: 10000
+  waitTimer: 0.25
+  canShoot: 1
 --- !u!1 &2020297495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1753200569590521668, guid: e25780106483d194ea44706edf164450, type: 3}
@@ -831,7 +858,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1037515577, guid: e25780106483d194ea44706edf164450, type: 3}
       propertyPath: speed
-      value: 10
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 1037515577, guid: e25780106483d194ea44706edf164450, type: 3}
       propertyPath: projectile
@@ -893,7 +920,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1037515577, guid: e25780106483d194ea44706edf164450, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e25780106483d194ea44706edf164450, type: 3}
 --- !u!114 &8565531375194578906 stripped
 MonoBehaviour:
