@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
     public GameObject[] weapons;
     public int currentWeapon = 0;
     private int weaponCount;
+    private float standardSpeedForward;
+    private float standardSpeedBackward;
+    private float standardSpeedStrafe;
+    public float buffTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +24,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (currentWeapon == 1)
+            if (currentWeapon == 2)
             {
                 currentWeapon = 0;
                 SwitchWeapon(currentWeapon);
@@ -28,6 +32,11 @@ public class Player : MonoBehaviour
             else if (currentWeapon == 0)
             {
                 currentWeapon = 1;
+                SwitchWeapon(currentWeapon);
+            }
+            else if (currentWeapon == 1)
+            {
+                currentWeapon = 2;
                 SwitchWeapon(currentWeapon);
             }
         }
@@ -49,11 +58,19 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SavePlayer()
+    public void resetSpeed()
+    {
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().ForwardSpeed = standardSpeedForward;
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().BackwardSpeed = standardSpeedBackward;
+        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().StrafeSpeed = standardSpeedStrafe;
+    }
+
+    public void savePlayer()
     {
         SaveSystem.SavePlayer(this);
     }
-    public void LoadPlayer()
+
+    public void loadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
         this.GetComponent<Health>().hp = data.health;

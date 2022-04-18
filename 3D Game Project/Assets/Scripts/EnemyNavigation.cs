@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyNavigation : MonoBehaviour
 {
-    public GameObject playerObject;
+    GameObject playerObject;
     public bool isAttacking;
     public float attackDistance;
     float health;
@@ -16,6 +16,7 @@ public class EnemyNavigation : MonoBehaviour
     {
         home = transform.position;
         health = GetComponent<Health>().hp;
+        playerObject = GameObject.Find("/Player");
     }
 
     // Update is called once per frame

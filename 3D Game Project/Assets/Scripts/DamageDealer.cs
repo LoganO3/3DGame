@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
-    public int damage = 5;
+    public float damage = 5;
 
     private void OnCollisionEnter(Collision collision)
     {

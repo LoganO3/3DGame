@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    float waitTimer = 6f;
+    [SerializeField]float waitTimer = 6f;
     // Start is called before the first frame update
     void Start()
     {
