@@ -32,7 +32,7 @@ public class MouseControl : MonoBehaviour
     public void Locked()
     {
         m_cursorIsLocked = true;
-        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController>().enabled = true;
+        GetComponent<UnityStandardAssets.Characters.ThirdPerson.ThirdPersonCharacter>().enabled = true;
         GetComponent<Player>().enabled = true;
 
         if (m_cursorIsLocked)

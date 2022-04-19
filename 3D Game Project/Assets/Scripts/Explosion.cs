@@ -11,14 +11,10 @@ public class Explosion : MonoBehaviour
     [Header("Purpose")]
     [SerializeField] bool isAnAttack;
     [SerializeField] bool isAHeal;
-    [SerializeField] bool isASpeedBuff;
-    [SerializeField] bool isADamageBuff;
     [Header("Details")]
     [SerializeField] float aOERadius;
     [SerializeField] float buffTimer;
     [SerializeField] float healthChange;
-    [SerializeField] float speedChange;
-    [SerializeField] float damageChange;
 
     private void Start()
     {
@@ -48,33 +44,6 @@ public class Explosion : MonoBehaviour
                     {
                         c.GetComponent<Health>().hp = c.GetComponent<Health>().hp + healthChange;
                     }
-
-                    if (isASpeedBuff == true)
-                    {
-                        c.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().ForwardSpeed =
-                            c.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().ForwardSpeed + speedChange;
-                        c.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().BackwardSpeed =
-                            c.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().BackwardSpeed + speedChange;
-                        c.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().StrafeSpeed =
-                            c.GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().StrafeSpeed + speedChange;
-                        c.GetComponent<Player>().isBuffed = true;
-                        c.GetComponent<Player>().buffTimer = buffTimer;
-                    }
-
-                    if (isADamageBuff == true)
-                    {
-                        c.GetComponentInChildren<DamageDealer>().damage = c.GetComponentInChildren<DamageDealer>().damage + damageChange;
-                        c.GetComponentInChildren<BowShooting>().projectile.GetComponent<DamageDealer>().damage =
-                             c.GetComponentInChildren<BowShooting>().projectile.GetComponent<DamageDealer>().damage + damageChange;
-                        c.GetComponentInChildren<RangedAttack>().projectile.GetComponent<DamageDealer>().damage =
-                            c.GetComponentInChildren<RangedAttack>().projectile.GetComponent<DamageDealer>().damage + damageChange;
-                        c.GetComponentInChildren<DamageDealer>().isBuffed = true;
-                        c.GetComponentInChildren<DamageDealer>().buffTimer = buffTimer;
-                        c.GetComponentInChildren<BowShooting>().projectile.GetComponent<DamageDealer>().isBuffed = true;
-                        c.GetComponentInChildren<BowShooting>().projectile.GetComponent<DamageDealer>().buffTimer = buffTimer;
-                        c.GetComponentInChildren<RangedAttack>().projectile.GetComponent<DamageDealer>().isBuffed = true;
-                        c.GetComponentInChildren<RangedAttack>().projectile.GetComponent<DamageDealer>().buffTimer = buffTimer;
-                    }
                 }
             }
 
@@ -89,28 +58,6 @@ public class Explosion : MonoBehaviour
                     if (isAHeal == true)
                     {
                         c.GetComponent<Health>().hp = c.GetComponent<Health>().hp + healthChange;
-                    }
-                    if (isASpeedBuff == true)
-                    {
-                        c.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = c.GetComponent<UnityEngine.AI.NavMeshAgent>().speed + speedChange;
-                        c.GetComponent<EnemyNavigation>().isBuffed = true;
-                        c.GetComponent<EnemyNavigation>().buffTimer = buffTimer;
-                    }
-                    if (isADamageBuff == true)
-                    {
-                        if (c.GetComponent <RangedEnemy>() == true)
-                        {
-                            c.GetComponent<RangedEnemy>().projectile.GetComponent<DamageDealer>().damage =
-                                c.GetComponent<RangedEnemy>().projectile.GetComponent<DamageDealer>().damage + damageChange;
-                            c.GetComponent<RangedEnemy>().projectile.GetComponent<DamageDealer>().isBuffed = true;
-                            c.GetComponent<RangedEnemy>().projectile.GetComponent<DamageDealer>().buffTimer = buffTimer;
-                        }
-                        else
-                        {
-                            c.GetComponentInChildren<DamageDealer>().damage = c.GetComponentInChildren<DamageDealer>().damage + damageChange;
-                            c.GetComponentInChildren<DamageDealer>().isBuffed = true;
-                            c.GetComponentInChildren<DamageDealer>().buffTimer = buffTimer;
-                        }
                     }
                 }
             }
