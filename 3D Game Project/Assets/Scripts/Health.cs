@@ -20,10 +20,9 @@ public class Health : MonoBehaviour
             if (GetComponent<Player>() == false)
             {
                 monsterType.MonsterTypeChecker();
+                Destroy(gameObject);
             }
-            else
-            { return; }
-            Destroy(gameObject);
+            else { Destroy(gameObject); }
         }
     }
 }

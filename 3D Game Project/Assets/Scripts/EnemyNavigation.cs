@@ -8,16 +8,12 @@ public class EnemyNavigation : MonoBehaviour
     GameObject playerObject;
     public bool isAttacking;
     public float attackDistance;
-    public float buffTimer;
-    public bool isBuffed = false;
-    float standardspeed;
     float health;
     Vector3 home;
 
     // Start is called before the first frame update
     void Start()
     {
-        standardspeed = GetComponent<UnityEngine.AI.NavMeshAgent>().speed;
         home = transform.position;
         health = GetComponent<Health>().hp;
         playerObject = GameObject.Find("/Player");
@@ -48,15 +44,5 @@ public class EnemyNavigation : MonoBehaviour
                 isAttacking = true;
             }
         }
-        if (isBuffed)
-        {
-            StartCoroutine(buff());
-            isBuffed = false;
-        }
-    }
-    IEnumerator buff()
-    {
-        yield return new WaitForSeconds(buffTimer);
-        GetComponent<UnityEngine.AI.NavMeshAgent>().speed = standardspeed;
     }
 }

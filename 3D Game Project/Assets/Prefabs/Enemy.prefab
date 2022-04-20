@@ -110,9 +110,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6337385486754331057}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 20
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -130,9 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713a1e45d217add40bd6a0ce88cb142d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerObject: {fileID: 0}
   isAttacking: 0
   attackDistance: 0
+  buffTimer: 0
+  isBuffed: 0
 --- !u!195 &6337385486754331058
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -19,43 +19,43 @@ public class BowShooting : MonoBehaviour
         }
         else if (drawLevel == 1)
         {
-            speed = 100000;
+            speed = 5000;
         }
         else if (drawLevel == 2)
         {
-            speed = 200000;
+            speed = 10000;
         }
         else if (drawLevel == 3)
         {
-            speed = 300000;
+            speed = 15000;
         }
         else if (drawLevel == 4)
         {
-            speed = 400000;
+            speed = 20000;
         }
         else if (drawLevel == 5)
         {
-            speed = 500000;
+            speed = 25000;
         }
         else if (drawLevel == 6)
         {
-            speed = 600000;
+            speed = 30000;
         }
         else if (drawLevel == 7)
         {
-            speed = 700000;
+            speed = 35000;
         }
         else if (drawLevel == 8)
         {
-            speed = 800000;
+            speed = 40000;
         }
         else if (drawLevel == 9)
         {
-            speed = 900000;
+            speed = 45000;
         }
         else if (drawLevel == 10)
         {
-            speed = 1000000;
+            speed = 50000;
         }
         Fire();
     }

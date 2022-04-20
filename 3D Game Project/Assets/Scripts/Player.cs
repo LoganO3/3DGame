@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class Player : MonoBehaviour
 {
     public GameObject[] weapons;
     public int currentWeapon = 0;
     private int weaponCount;
-    public float standardForwardSpeed;
-    public float standardBackwardSpeed;
-    public float standardStrafeSpeed;
+    public float standardForwardSpeed = 8.0f;  
+    public float standardBackwardSpeed = 4.0f;
+    public float standardStrafeSpeed = 4.0f;
     public float buffTimer;
     public bool isBuffed = false;
 
@@ -19,9 +18,6 @@ public class Player : MonoBehaviour
     {
         weaponCount = weapons.Length;
         SwitchWeapon(currentWeapon);;
-        standardForwardSpeed = GetComponent<RigidbodyFirstPersonController.MovementSettings>().ForwardSpeed;
-        standardBackwardSpeed = GetComponent<RigidbodyFirstPersonController.MovementSettings>().BackwardSpeed;
-        standardStrafeSpeed = GetComponent<RigidbodyFirstPersonController.MovementSettings>().StrafeSpeed;
     }
 
     // Update is called once per frame
@@ -87,8 +83,5 @@ public class Player : MonoBehaviour
     IEnumerator buff()
     {
         yield return new WaitForSeconds(buffTimer);
-        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().ForwardSpeed = standardForwardSpeed;
-        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().BackwardSpeed = standardBackwardSpeed;
-        GetComponent<UnityStandardAssets.Characters.FirstPerson.RigidbodyFirstPersonController.MovementSettings>().StrafeSpeed = standardStrafeSpeed;
     }
 }
