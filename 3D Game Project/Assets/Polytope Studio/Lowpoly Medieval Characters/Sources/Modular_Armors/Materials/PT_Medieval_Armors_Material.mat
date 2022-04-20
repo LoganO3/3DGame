@@ -10,8 +10,8 @@ Material:
   m_Name: PT_Medieval_Armors_Material
   m_Shader: {fileID: 4800000, guid: 66cf399cd52203c4685e11681d535f09, type: 3}
   m_ShaderKeywords: BOOLEAN_DB96F4EA_ON _CAPE_KEY1 _FLATCOLORS_ON _GLOSSYREFLECTIONS_OFF
-    _KEYWORD0_ON _METALICOFF_ON _METALICON_ON _SMOOTHNESSOFF_ON _SMOOTHNESSON_ON _SPECULARHIGHLIGHTS_OFF
-    _TOGGLESWITCH0_ON _TOGGLESWITCH1_ON
+    _KEYWORD0_ON _METALICOFF_ON _METALICON_ON _SMOOTHNESSOFF_ON _SMOOTHNESSON_ON
+    _SPECULARHIGHLIGHTS_OFF _TOGGLESWITCH0_ON _TOGGLESWITCH1_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -89,9 +89,9 @@ Material:
     - _SmoothnessOn: 1
     - __dirty: 0
     m_Colors:
-    - _CLOTH1COLOR: {r: 0.1465379, g: 0.282117, b: 0.3490566, a: 0}
-    - _CLOTH2COLOR: {r: 1, g: 0, b: 0, a: 0}
-    - _CLOTH3COLOR: {r: 0.254717, g: 0.254717, b: 0.254717, a: 0}
+    - _CLOTH1COLOR: {r: 0.08276965, g: 0.10325668, b: 0.11320752, a: 0}
+    - _CLOTH2COLOR: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0}
+    - _CLOTH3COLOR: {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 0}
     - _COATOFARMSCOLOR: {r: 1, g: 0, b: 0, a: 0}
     - _EYESCOLOR: {r: 0.0734529, g: 0.1320755, b: 0.05046281, a: 1}
     - _FEATHERS1COLOR: {r: 0.7735849, g: 0.492613, b: 0.492613, a: 0}
@@ -111,3 +111,4 @@ Material:
     - _SCARSCOLOR: {r: 0.8490566, g: 0.5037117, b: 0.3884835, a: 0}
     - _SCLERACOLOR: {r: 0.9056604, g: 0.8159487, b: 0.8159487, a: 0}
     - _SKINCOLOR: {r: 2.02193, g: 1.0081, b: 0.6199315, a: 0}
+  m_BuildTextureStacks: []

@@ -13,14 +13,14 @@ GameObject:
   - component: {fileID: 1037515580}
   - component: {fileID: 1037515579}
   - component: {fileID: 1037515578}
-  - component: {fileID: 1037515577}
+  - component: {fileID: 1953556586}
   m_Layer: 10
   m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1037515576
 Transform:
   m_ObjectHideFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037515575}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.32000732, y: -0.4479996, z: 0.27001953}
+  m_LocalPosition: {x: 0.32000732, y: -0.4479996, z: 0.291}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.5}
   m_Children:
   - {fileID: 1091340031}
@@ -114,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &1037515577
+--- !u!114 &1953556586
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,13 +123,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1037515575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa78f31db952e6448066b60dfd3c4eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 1be5e54ebce136247b3fa25ef1dec7c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootingPoint: {fileID: 1091340031}
-  projectile: {fileID: 0}
-  speed: 0
+  projectile: {fileID: 3407378645802576443, guid: 34a9332526a1fc64d8af42abe1b27484, type: 3}
+  speed: 10000
   waitTimer: 0.25
+  projectiles:
+  - {fileID: 3407378645802576443, guid: 34a9332526a1fc64d8af42abe1b27484, type: 3}
+  - {fileID: 3407378645802576443, guid: 1956adfd4cba698409f8d3ea9f384f13, type: 3}
+  currentProjectile: 0
   canShoot: 1
 --- !u!1 &1091340030
 GameObject:
@@ -411,7 +415,11 @@ MonoBehaviour:
   - {fileID: 1753200570905338804}
   - {fileID: 1037515575}
   currentWeapon: 0
+  standardForwardSpeed: 0
+  standardBackwardSpeed: 0
+  standardStrafeSpeed: 0
   buffTimer: 0
+  isBuffed: 0
 --- !u!114 &1753200569663508990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,7 +596,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1753200569774843944
 Transform:
   m_ObjectHideFlags: 0
