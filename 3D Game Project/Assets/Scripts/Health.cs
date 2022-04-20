@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int hp = 5;
+    public float hp = 5;
     MonsterType monsterType;
 
     private void Start()

@@ -11,7 +11,7 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] float minTimeBetweenShots = .2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
     EnemyNavigation enemyNavigation;
-    public GameObject playerObject;
+    GameObject playerObject;
     float speed;
     float shotCounter;
     int damping = 2;
@@ -21,6 +21,7 @@ public class RangedEnemy : MonoBehaviour
     {
         shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
         enemyNavigation = GetComponent<EnemyNavigation>();
+        playerObject = GameObject.Find("/Player");
     }
 
     // Update is called once per frame
