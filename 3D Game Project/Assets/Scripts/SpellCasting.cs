@@ -10,8 +10,13 @@ public class SpellCasting : MonoBehaviour
     [SerializeField] float waitTimer = .25f;
     public GameObject[] projectiles;
     public int currentProjectile = 0;
-
     public bool canShoot = true;
+    Animator m_Animator;
+
+    void Start()
+    {
+        m_Animator = GetComponentInParent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -41,14 +46,11 @@ public class SpellCasting : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1") && canShoot == true)
         {
+            m_Animator.SetTrigger("CastingSpell");
             canShoot = false;
             GameObject activeProjectile = Instantiate(projectile, transform.position, transform.rotation);
             activeProjectile.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, speed));
             StartCoroutine(Wait());
-        }
-        if (Input.GetButtonUp("Fire1"))
-        {
-            return;
         }
     }
 

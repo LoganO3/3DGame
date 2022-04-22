@@ -9,6 +9,12 @@ public class BowShooting : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float waitTimer = .25f;
     [SerializeField] float drawLevel = 0;
+    Animator m_Animator;
+
+    void Start()
+    {
+        m_Animator = GetComponentInParent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -65,12 +71,14 @@ public class BowShooting : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             StartCoroutine(DrawBack());
+            m_Animator.SetBool("ShootingBow", true);
         }
         if (Input.GetButtonUp("Fire1"))
         {
             GameObject projectiles = Instantiate(projectile, transform.position, transform.rotation);
             projectiles.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, speed));
             drawLevel = 0;
+            m_Animator.SetBool("ShootingBow", false);
             StopAllCoroutines();
         }
     }

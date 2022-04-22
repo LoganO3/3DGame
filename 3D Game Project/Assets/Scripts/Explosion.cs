@@ -39,13 +39,16 @@ public class Explosion : MonoBehaviour
                     {
                         c.GetComponent<Health>().hp = c.GetComponent<Health>().hp - healthChange;
                     }
-
+                    else { return; }
                     if (isAHeal == true)
                     {
                         c.GetComponent<Health>().hp = c.GetComponent<Health>().hp + healthChange;
                     }
+                    else { return; }
                 }
+                else { return; }
             }
+            else { return; }
 
             if (targetIsEnemy == true)
             {
@@ -55,12 +58,16 @@ public class Explosion : MonoBehaviour
                     {
                         c.GetComponent<Health>().hp = c.GetComponent<Health>().hp - healthChange;
                     }
+                    else { return; }
                     if (isAHeal == true)
                     {
                         c.GetComponent<Health>().hp = c.GetComponent<Health>().hp + healthChange;
                     }
+                    else { return; }
                 }
+                else { return; }
             }
+            else { return; }
         }
     }
 }

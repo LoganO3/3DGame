@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
     public float standardStrafeSpeed = 4.0f;
     public float buffTimer;
     public bool isBuffed = false;
+    Animator m_Animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_Animator = GetComponent<Animator>();
         weaponCount = weapons.Length;
-        SwitchWeapon(currentWeapon);;
+        SwitchWeapon(currentWeapon);
     }
 
     // Update is called once per frame
@@ -45,6 +47,13 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(buff());
             isBuffed = false;
+        }
+        if(currentWeapon == 0)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                m_Animator.SetTrigger("SwingingSword");
+            }
         }
     }
 
