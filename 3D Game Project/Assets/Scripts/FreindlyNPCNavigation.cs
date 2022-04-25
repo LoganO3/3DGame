@@ -21,7 +21,11 @@ public class FreindlyNPCNavigation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (waitTime >= 3)
+        if (!pathingParent)
+        {
+            m_Animator.SetBool("Waiting", true);
+        }
+        else if (waitTime >= 3)
         {
             m_Animator.SetBool("Waiting", false);
             waitTime = 0;
@@ -34,17 +38,26 @@ public class FreindlyNPCNavigation : MonoBehaviour
 
     public List<Transform> GetWaypoints()
     {
-        var waypoints = new List<Transform>();
-        foreach (Transform child in pathingParent.transform)
+        if (!pathingParent)
         {
-            waypoints.Add(child);
+            var waypoints = new List<Transform>();
+            return waypoints;
         }
-        return waypoints;
+        else
+        {
+            var waypoints = new List<Transform>();
+            foreach (Transform child in pathingParent.transform)
+            {
+                waypoints.Add(child);
+            }
+            return waypoints;
+        }
     }
 
     private void Move()
     {
-        if (waypointIndex > waypoints.Count - 1)
+        if(!pathingParent) { return; }
+        else if (waypointIndex > waypoints.Count - 1)
         {
             waypointIndex = 0;
         }
@@ -58,6 +71,7 @@ public class FreindlyNPCNavigation : MonoBehaviour
             waypointIndex = waypointIndex + 1;
         }
     }
+
     private void StartMove()
     {
         waitTime++;

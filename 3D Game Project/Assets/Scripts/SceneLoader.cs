@@ -14,10 +14,19 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene(2);
+    }
     public void LoadNextScene()
     {
         int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(CurrentSceneIndex + 1);
+    }
+    public void LoadDeathScene()
+    {
+        int CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(3);
     }
     public void QuitGame()
     {

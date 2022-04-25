@@ -6,10 +6,12 @@ public class Health : MonoBehaviour
 {
     public float hp = 5;
     MonsterType monsterType;
+    SceneLoader sceneLoader;
 
     private void Start()
     {
         monsterType = GetComponent<MonsterType>();
+        sceneLoader = GetComponent<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -22,7 +24,11 @@ public class Health : MonoBehaviour
                 monsterType.MonsterTypeChecker();
                 Destroy(gameObject);
             }
-            else { Destroy(gameObject); }
+            else
+            {
+                sceneLoader.LoadDeathScene();
+                Destroy(gameObject);
+            }
         }
     }
 }
