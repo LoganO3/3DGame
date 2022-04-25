@@ -6,13 +6,14 @@ public class Interactable : MonoBehaviour
 {
     Player player;
     public bool inRange = false;
-    public GameObject speechMenu;
+    SceneLoader sceneLoader;
+    bool Inside;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<Player>();
-        speechMenu.SetActive(false);
+        sceneLoader = FindObjectOfType<SceneLoader>();
     }
 
     // Update is called once per frame
@@ -34,13 +35,13 @@ public class Interactable : MonoBehaviour
     {
         if(inRange == true)
         {
-            if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == false)
+            if (Input.GetKeyDown(KeyCode.E) && Inside == false)
             {
-               speechMenu.SetActive(true);
+                sceneLoader.LoadNextScene();
             }
-            else if (Input.GetKeyDown(KeyCode.E) && speechMenu.activeSelf == true)
+            else if (Input.GetKeyDown(KeyCode.E))
             {
-                speechMenu.SetActive(false);
+                sceneLoader.LoadGameScene();
             }
         }
         else {return;}
